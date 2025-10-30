@@ -11,7 +11,7 @@ fi
 if [ "x$2" == "x" ]; then
     # Check if SSH public keys exist in order of algorithm security preference
     for keyalgs in ed25519 ecdsa rsa dsa; do
-        if [ -f ~/.ssh/id_$keyalgs ]; then
+        if [ -f ~/.ssh/id_$keyalgs ] && [ -f ~/.ssh/id_$keyalgs.pub ]; then
             SSH_PUB_KEY_PATH=~/.ssh/id_$keyalgs.pub
             break;
         fi
